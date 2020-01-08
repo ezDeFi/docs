@@ -1,0 +1,694 @@
+swagger: "2.0"
+info:
+  description: "You can find out more about ezDeFi at [http://ezDeFi.com](http://ezDeFi.com). For this sample, you can use the api key `api-key` to test the authorization."
+  version: "1.0.0-beta"
+  title: "Crypto Payment API"
+  termsOfService: "http://ezDeFi.com/terms/"
+  contact:
+    email: "support@ezDeFi.com"
+  license:
+    name: "MIT License GPL-3.0"
+    url: "https://opensource.org/licenses/GPL-3.0"
+host: "163.172.170.35:3000"
+basePath: "/api"
+tags:
+- name: "user"
+  description: "List of API Requests about Users"
+  externalDocs:
+    description: "Find out more"
+    url: "http://ezDeFi.com"
+- name: "chain"
+  description: "List of API Requests about supported Chains"
+  externalDocs:
+    description: "Find out more"
+    url: "http://ezDeFi.com"
+- name: "token"
+  description: "List of API Requests about supported Tokens"
+  externalDocs:
+    description: "Find out more"
+    url: "http://ezDeFi.com"
+- name: "payment"
+  description: "List of API Requests about Payments"
+  externalDocs:
+    description: "Find out more"
+    url: "http://ezDeFi.com"
+schemes:
+- "http"
+#- "https"
+paths:
+  /user/show:
+    get:
+      tags:
+      - "user"
+      summary: "Get user informations"
+      description: "Get user informations"
+      operationId: "getUser"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+      security:
+      - api-key: []
+  /user/list_wallet:
+    get:
+      tags:
+      - "user"
+      summary: "Show verified wallets, with signature"
+      description: "Show verified wallets"
+      operationId: "list_wallet"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+      security:
+      - api-key: []
+  /user/set_wallet_status:
+    put:
+      tags:
+      - "user"
+      summary: "Enable/disable a verified wallet"
+      description: "Enable/disable a verified wallet"
+      operationId: "set_wallet_status"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "address"
+        in: "query"
+        description: "wallet address"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+      security:
+      - api-key: []
+
+  /payment/create:
+    post:
+      tags:
+      - "payment"
+      summary: "Create a payment request"
+      description: "Create a payment request"
+      operationId: "createPayment"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "uoid"
+        in: "query"
+        description: "unique order id(merchant side)"
+        required: true
+        type: "string"
+      - name: "to"
+        in: "query"
+        description: "wallet address for payment receive"
+        required: true
+        type: "string"
+      - name: "value"
+        in: "query"
+        description: "origin payment value(merchant side)"
+        required: true
+        type: "number"
+      - name: "currency"
+        in: "query"
+        description: "currency, origin(any):target(cryto type) - ie. ETH or USD:ETH"
+        required: true
+        type: "string"
+      - name: "safedist"
+        in: "query"
+        description: "number of comfirmations to accept a tx"
+        required: false
+        type: "number"
+      - name: "ucid"
+        in: "query"
+        description: "unique customer id(merchant side), applied for limit pending payment per customer"
+        required: false
+        type: "string"
+      - name: "duration"
+        in: "query"
+        description: "duration to accept payment(default 24 hours), unit = second"
+        required: false
+        type: "string"
+      - name: "callback"
+        in: "query"
+        description: "callback url, hooked once payment success"
+        required: false
+        type: "string"
+      - name: "redirect"
+        in: "query"
+        description: "redirected url, in case that payment on gateway processed"
+        required: false
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+      security:
+      - api-key: []
+
+  /payment/get:
+    get:
+      tags:
+      - "payment"
+      summary: "Get payment detail by uoid and merchantId(merchant side) or paymentid"
+      description: "Get payment detail by uoid and merchantId(merchant side) or paymentid"
+      operationId: "getPayment"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "paymentid"
+        in: "query"
+        description: "payment id, which received after created"
+        required: false
+        type: "string"
+      - name: "uoid"
+        in: "query"
+        description: "unique order id(merchant side)"
+        required: false
+        type: "string"
+      - name: "userid"
+        in: "query"
+        description: "merchant id"
+        required: false
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+      # security:
+      # - api-key: []
+  /payment/list:
+    get:
+      tags:
+      - "payment"
+      summary: "Get payment list"
+      description: "Get payment list, api-key required"
+      operationId: "getPaymentList"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "skip"
+        in: "query"
+        description: "skip first found payments(default 0)"
+        required: false
+        type: "number"
+      - name: "limit"
+        in: "query"
+        description: "limit of searching result"
+        required: false
+        type: "string"
+      - name: "ucid"
+        in: "query"
+        description: "unique customer id(merchant side)"
+        required: false
+        type: "string"
+      - name: "to"
+        in: "query"
+        description: "received wallet address"
+        required: false
+        type: "string"
+      - name: "chain"
+        in: "query"
+        description: "chain keyword (_id, name, address ...)"
+        required: false
+        type: "string"
+      - name: "token"
+        in: "query"
+        description: "token keyword (_id, name, address ...)"
+        required: false
+        type: "string"
+      - name: "status"
+        in: "query"
+        description: "payment status"
+        required: false
+        type: "string"
+        enum:
+        - "EXPIRED"
+        - "PENDING"
+        - "DONE"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+      security:
+      - api-key: []
+
+  /payment/list_tx:
+    get:
+      tags:
+      - "payment"
+      summary: "Get tx list of a payment"
+      description: "Get tx list of a payment"
+      operationId: "getListTx"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "paymentid"
+        in: "query"
+        description: "payment id"
+        required: true
+        type: "string"
+      - name: "skip"
+        in: "query"
+        description: "skip first found payments(default 0)"
+        required: false
+        type: "number"
+      - name: "limit"
+        in: "query"
+        description: "limit of searching result(default 50)"
+        required: false
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+      security:
+      - api-key: []
+
+  /chain/show:
+    get:
+      tags:
+      - "chain"
+      summary: "Show network(chain) details"
+      description: "Show network(chain) details"
+      operationId: "showChain"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "keyword"
+        in: "query"
+        description: "search keyword"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+  /chain/list:
+    get:
+      tags:
+      - "chain"
+      summary: "Show supported chains (networks)"
+      description: "Show supported chains (networks)"
+      operationId: "showChains"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+
+  /token/list:
+    get:
+      tags:
+      - "token"
+      summary: "Show supported tokens"
+      description: "Show supported tokens"
+      operationId: "showTokens"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "skip"
+        in: "query"
+        description: "skip first elements"
+        required: false
+        type: "integer"
+      - name: "limit"
+        in: "query"
+        description: "limit elements"
+        required: false
+        type: "integer"
+      - name: "keyword"
+        in: "query"
+        description: "search keyword for token name or symbol"
+        required: false
+        type: "string"
+      - name: "sort"
+        in: "query"
+        description: "sort elements"
+        required: false
+        type: "string"
+        enum:
+        - "name"
+        - "price"
+        - "symbol"
+        - "default"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+  /token/show/{_id}:
+    get:
+      tags:
+      - "token"
+      summary: "Show token detail"
+      description: "Show token detail"
+      operationId: "showToken"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "_id"
+        in: "path"
+        description: "show token by id"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+  /token/exchange/{_pair}:
+    get:
+      tags:
+      - "token"
+      summary: "Show exchange rate between fiat:token"
+      description: "Show exchange rate between fiat:token"
+      operationId: "exchangeToken"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "_pair"
+        in: "path"
+        description: "show exchange rate by pair fiat:token"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+securityDefinitions:
+  api-key:
+    type: "apiKey"
+    name: "api-key"
+    in: "header"
+definitions:
+  Chain:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      id:
+        type: "string"
+      name:
+        type: "string"
+      symbol:
+        type: "string"
+      slug:
+        type: "string"
+      active:
+        type: "boolean"
+      website:
+        type: "string"
+      endpoint:
+        type: "string"
+      decimal:
+        type: "integer"
+        format: "int64"
+      blockNumber:
+        type: "integer"
+        format: "int64"
+      cursor:
+        type: "integer"
+        format: "int64"
+      circulating_supply:
+        type: "string"
+      total_supply:
+        type: "string"
+      max_supply:
+        type: "string"
+      date_added:
+        type: "string"
+      num_market_pairs:
+        type: "integer"
+        format: "int64"
+      cmc_rank:
+        type: "integer"
+        format: "int64"
+      last_updated:
+        type: "string"
+      quote:
+        type: "object"
+    xml:
+      name: "Chain"
+  Currency:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      id:
+        type: "string"
+      name:
+        type: "string"
+      symbol:
+        type: "string"
+      price:
+        type: "string"
+    xml:
+      name: "Currency"
+  User:
+    type: "object"
+    properties:
+      profile :
+        type: "object"
+      defaultLanguage:
+        type: "string"
+      active :
+        type : "boolean"
+      logins:
+        type: array
+        items:
+          type: "string"
+      googleId:
+        type: "string"
+      facebookId:
+        type: "string"
+      password:
+        type: "string"
+      salt:
+        type: "string"
+      privateKey:
+        type: "string"
+      apiKey:
+        type: "string"
+      amountNeedAprove:
+        type: "integer"
+        format: "int64"
+      limitPerDay:
+        type: "integer"
+        format: "int64"
+      limitPerWeek:
+        type: "integer"
+        format: "int64"
+      limitPerMonth:
+        type: "integer"
+        format: "int64"
+      milestoneDay:
+        type: "string"
+      milsetoneWeek:
+        type: "string"
+      milsetoneMonth:
+        type: "string"
+      appName:
+        type: "string"
+      email:
+        type: "string"
+      username:
+        type: "string"
+      callBackUrl:
+        type: "string"
+      role:
+        type: "string"
+      status:
+        type: "string"
+      limitPerUcid:
+        type: "integer"
+        format: "int64"
+    xml:
+      name: "User"
+  Payment:
+    type: "object"
+    properties:
+      hash:
+        type: "string"
+      uoid:
+        type: "string"
+      ucid:
+        type: "string"
+      user:
+        type: "string"
+      token:
+        type: "string"
+      chain:
+        type: "string"
+      to:
+        type: "string"
+      value:
+        type: "string"
+      currency:
+        type: "string"
+      originValue:
+        type: "string"
+      originCurrency:
+        type: "string"
+      rest:
+        type: "string"
+      gas:
+        type: "string"
+      safeDist:
+        type: "integer"
+        format: "int64"
+      status:
+        description: "Payment Status"
+        enum:
+        - "PENDING"
+        - "COMFIRMED"
+        - "ACCEPTED"
+        - "EXPIRED"
+      created:
+        type: "string"
+      expiredTime:
+        type: "string"
+        format: "date"
+      description:
+        type: "string"
+      callback:
+        type: "string"
+      redirect:
+        type: "string"
+    xml:
+      name: "Payment"
+  Token:
+    type: "object"
+    properties:
+      chain:
+        type: "string"
+      active:
+        type: "boolean"
+      website:
+        type: "string"
+      decimal:
+        type: "integer"
+        format: "int64"
+      address:
+        type: "string"
+      id:
+        type: "string"
+      name:
+        type: "string"
+      symbol:
+        type: "string"
+      slug:
+        type: "string"
+      circulating_supply:
+        type: "string"
+      total_supply:
+        type: "string"
+      max_supply:
+        type: "string"
+      date_added:
+        type: "string"
+      num_market_pairs:
+        type: "integer"
+        format: "int64"
+      cmc_rank:
+        type: "integer"
+        format: "int64"
+      last_updated:
+        type: "string"
+      quote:
+        type: "object"
+    xml:
+      name: "Token"
+  Wallet:
+    type: "object"
+    properties:
+      address:
+        type: string
+      userId:
+        type: string
+      pendingCount:
+        type: "integer"
+        format: "int64"
+      status:
+        description: "Wallet Status"
+        enum:
+        - "ACTIVE"
+        - "INACTIVE"
+    xml:
+      name: "Wallet"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about ezDeFi"
+  url: "https://ezDeFi.com"
