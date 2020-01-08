@@ -8,7 +8,7 @@ info:
     email: cs@ezdefi.com
     url: 'https://ezdefi.com/contact-us'
   license: {}
-host: merchant.ezdefi.com
+host: merchant-api.ezdefi.com
 basePath: /api
 tags:
   - name: user
