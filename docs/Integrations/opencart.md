@@ -1,7 +1,8 @@
-# Opencart
+# OpenCart
 1. ezDeFi Plugin for OpenCart Installation Guide
 
 Please make sure that you have the ezDeFi plugin file for OpenCart. In case you don’t, click on the link below to download the file and install:
+
 https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38282&filter_search=ezdefi
 
 To install ezDeFi plugin, go to Extensions -> Installer -> Upload, and upload the ezDeFi plugin setup file. After the file has been successfully uploaded, it will display this message:
@@ -10,7 +11,114 @@ To install ezDeFi plugin, go to Extensions -> Installer -> Upload, and upload th
 
 Then you go to Extensions, select Payments in the listbox in Choose the extension type. Scroll down, click on  in ezDeFi Plugin to complete the installation.
 
+<img>
+<img>
+
 After installation completed,  will change into . Now you can configure the settings of ezDeFi Plugin by clicking on .
 
 2. ezDeFi Configuration Guide
+
+First, you need to register for a merchant account on ezDeFi homepage:
+
+https://merchant.ezdefi.com/
+
+After registering for an account on ezDeFi Gateway, you can configure ezDeFi Plugin. Please make sure that your account on ezDeFi is ready, then move on to the next steps.
+
+<img>
+
+I. **Enable/Disable**: Turn On/Off ezDeFi Plugin on your store interface. This field allows ezDeFi to be the payment method for your customer.
+
+II. **Title**: Change the name of the payment method on your store interface.
+
+III. **Description**: Add description for this payment method in the textbox.
+
+IV. **Gateway API Url**: Equal to Gateway Endpoint. This field is automatically configured.
+
+V. **Gateway API Key**: The API Key of the account you registered on ezDeFi homepage. Go to your ezDeFi merchant account and paste it into this field.
+
+VI. **Payment method**.
+
+ezDeFi supports payment for customers using ezDeFi Wallet and also the customers who prefer their wallet of choice.
+* Pay with any crypto wallet: is the payment method for customers who prefer to use their wallets of choice.
+
+For this payment method to function properly, you need to set Acceptable price variation and Decimal (for each coin/token)
+
+* Pay with ezDeFi wallet: is the payment method for customers who use ezDeFi Wallet.
+
+Acceptable price variation and Decimal settings for **Pay with any crypto wallet**:
+
+* **Acceptable price variation**: Enter the acceptable fluctuation rate to generate the difference in price with the total price of the Order.
+
+Note:
+1. If the number of orders at one moment is too large  and the value of each order is similar, the Acceptable price variation should be > 1%.
+2. If your product price is low, the recommended Acceptable price variation is between 2 - 5%.
+
+* **Decimal**: Set decimal for all the accepted cryptocurrency in your store.
+
+Note: With coin/token that has big value like BTC, ETH, etc., the decimal should be more or equal to 8.
+
+VII. **Accepted Currency**: Setup the cryptocurrency that are allowed in your store.
+
+Initially, ezDeFi automatically includes NewSD, Bitcoin, and Ethereum. You can add more coin/token by clicking on Add more.
+
+<img>
+
+The Coin config interface will add another field below, enter the currency that you want to add in Name to find coin/token.
+
+<img>
+
+* **Discount**: Enter the discount percentage for each coin/token.
+* **Expiration (seconds)**: Enter the time for checkout before it expires.
+* **Wallet address**: Enter the wallet address to receive coin/token payment.
+* **Block confirmation**: The number of blocks that you want to record customer’s transaction and confirm the transaction.
+
+Note: With coin/token that has large value i.e. BTC, ETH, etc., you should enter big enough number, but the downside is that confirming customers’ transactions would take more time.
+
+VIII. **Save Changes**
+
+Finally, don’t forget to save your configs.
+
+Below is the completed example of ezDeFi plugin setup:
+
+3. ezDeFi Payment Guide
+
+Step 1: Select Pay with cryptocurrencies method
+
+Step 2: Confirm I have read and agreed to the Terms & Conditions, then click on Continue.
+
+Step 3: Select the preferred coin/token payment
+
+Step 4: Click on Next button
+
+Now the system will display the QR Code, if you use wallet other than ezDeFi Wallet, please select Pay with any crypto currency wallet and enter the right amount on the QR Code to complete the payment. Otherwise, if you use ezDeFi Wallet, please select Pay with ezDeFi wallet to complete the payment.
+
+Note: We recommend ezDeFi Wallet for smoother and easier checkout.
+
+You can change coin/token to pay by clicking on other coin/token buttons, then continue with Step 4.
+
+4. Processing Orders Paying after the QR Code Expires (For merchant)
+Click on ezDeFi exception management
+
+In ezDeFi Exception Management, Exception is the record of the amount corresponding with each order. Customer’s QR code generation and amount is stored in ezDeFi exception table. This will help the merchant to handle order issues and other related problems.
+
+I. Confirm order:
+
+Select the valid order, then click on Confirm Paid button.
+
+II. Change the order status from Paid to Not paid
+
+Select the order you want to change, click Revert button.
+
+III. Assign amount doesn’t belong to any order
+
+E.g: Your customer uses Pay with any crypto currency, but doesn’t enter the exact amount displayed in QR Code. You can go to ezDeFi exception to find the amount that customers paid, click on OrderID to find the order you want to confirm, then click on Confirm paid to complete the order.
+
+IV. Choose order to assign
+
+You can assign each amount for any order you want, or you can create a new order and assign the amount for it.
+Sequence: Click on Choose order to assign -> Select 1 order -> Click on Assign.
+
+V. Search
+
+ezDeFi exception management supports search based on Amount, OrderID, Currency, or Email.
 
