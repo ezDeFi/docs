@@ -37,17 +37,21 @@ After activating ezDeFi Plugin, you will be redirected to plugin management. In 
 
 ![](../../img/api.png "")
 
+> **Notice**:
+>
+> **API Url** is automatically filled for you, if not, please enter https://merchant-api.ezdefi.com/api/
+
 7. After having filled the **API Url** and **API Key**, you need to insert your preferred cryptocurrency for payment, and your **Wallet Address**, **Discount**, **Expiration**, **Block Confirmation** and **Decimal**.
 
-![](../../img/wallet.png "")
+![](../../img/woo-wallet.png "")
 
 > **Notice:**
 > * With coin/token that has big value like BTC, ETH, etc., the decimal should be more or equal to 8.
 > * As **Block Confirmation** number is bigger, it's more secure for the transaction, but the confirmation time will get longer for the customer.
+> * **Add Currency** button gives customers more choice while paying with cryptoccurency. Click on the button, then search for the cryptoccurency you want.
+
+We have a list of our supported coins/tokens. If we don't have your coin/token in this list, please fill out the form at [Supported Coins/Tokens](https://ezdefi.com/news/supported-coins-tokens/)
 
 8. Save changes.
 
 You have successfully integrated ezDeFi into your business.
-
-
-

@@ -39,25 +39,23 @@ V. **Gateway API Key**: The API Key of the account you registered on ezDeFi home
 VI. **Payment method**.
 
 ezDeFi supports payment for customers using ezDeFi Wallet and also the customers who prefer their wallet of choice.
-* Pay with any crypto wallet: is the payment method for customers who prefer to use their wallets of choice.
+* **Pay with any crypto wallet**: is the payment method for customers who prefer to use their wallets of choice.
 
-For this payment method to function properly, you need to set Acceptable price variation and Decimal (for each coin/token)
+For this payment method to function properly, you need to set **Acceptable price variation** and **Decimal** (for each coin/token)
 
-* Pay with ezDeFi wallet: is the payment method for customers who use ezDeFi Wallet.
-
-Acceptable price variation and Decimal settings for **Pay with any crypto wallet**:
-
-* **Acceptable price variation**: Enter the acceptable fluctuation rate to generate the difference in price with the total price of the Order.
+**Acceptable price variation**: Enter the acceptable fluctuation rate to generate the difference in price with the total price of the Order.
 
 > **Notice:**
 > 1. If the number of orders at one moment is too large  and the value of each order is similar, the **Acceptable price variation** should be > 1%.
 > 2. If your product price is low, the recommended **Acceptable price variation** is between 2 - 5%.
 
-* **Decimal**: Set decimal for all the accepted cryptocurrency in your store.
+**Decimal**: Set decimal for all the accepted cryptocurrency in your store.
 
 > **Notice:** 
 > 
 > With coin/token that has big value like BTC, ETH, etc., the decimal should be more or equal to 8.
+
+* **Pay with ezDeFi wallet**: is the payment method for customers who use ezDeFi Wallet.
 
 VII. **Accepted Currency**: Setup the cryptocurrency that are allowed in your store.
 
@@ -66,6 +64,8 @@ Initially, ezDeFi automatically includes NewSD, Bitcoin, and Ethereum. You can a
 <img>
 
 The Coin config interface will add another field below, enter the currency that you want to add in Name to find coin/token.
+
+We have a list of our supported coins/tokens. If we don't have your coin/token in this list, please fill out the form at [Supported Coins/Tokens](https://ezdefi.com/news/supported-coins-tokens/)
 
 <img>
 
@@ -136,4 +136,3 @@ Sequence: Click on **Choose order to assign** -> Select 1 order -> Click on **As
 V. Search
 
 **ezDeFi exception management** supports search based on **Amount**, **OrderID**, **Currency**, or **Email**.
-
