@@ -1,3 +1,3 @@
-# Easy Digital Download
+# EasyDigitalDownload
 
 The beginning of an awesome article...
