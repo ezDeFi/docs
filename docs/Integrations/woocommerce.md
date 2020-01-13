@@ -77,4 +77,6 @@ We have a list of our supported coins/tokens. If we don't have your coin/token i
 
 9. **Save changes**
 
+![WooCommerce completed setup](../../img/woo-complete.png "WooCommerce completed setup")
+
 You have successfully integrated ezDeFi into your business.

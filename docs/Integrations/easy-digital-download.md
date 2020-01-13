@@ -15,7 +15,7 @@ For Wordpress users, you can follow the instruction below to install ezDeFi Gate
 
 * Or find *name of the plugin + ezdefi* in the Search Bar, and install directly from Wordpress Plugin Directory
 
-![](../../img/search-edd.png "")
+![](../../img/edd-search.png "")
 
 3. Click on **Install Now**, then **Activate** plugin to complete the installation.
 
@@ -68,6 +68,8 @@ For this payment method to function properly, you need to set **Acceptable price
 
 We have a list of our supported coins/tokens. If we don't have your coin/token in this list, please fill out the form at [Supported Coins/Tokens](https://ezdefi.com/news/supported-coins-tokens/)
 
-8. Save Changes
+8. **Save Changes**
+
+![EasyDigitalDownloads completed setup](../../img/edd-complete.png "EasyDigitalDownloads completed setup")
 
 You have successfully integrated ezDeFi into your business.
