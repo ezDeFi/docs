@@ -84,6 +84,8 @@ Finally, don’t forget to save your configs.
 
 Below is the completed example of ezDeFi plugin setup:
 
+![OpenCart completed setup](../../img/ "OpenCart completed setup")
+
 3. ezDeFi Payment Guide
 
 Step 1: Select **Pay with cryptocurrencies** method
