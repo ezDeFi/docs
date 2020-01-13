@@ -91,11 +91,17 @@ Step 1: Select **Pay with cryptocurrencies** method
 
 Step 2: Confirm I have read and agreed to the *Terms & Conditions*, then click on **Continue**.
 
+![Pay with ezDeFi](../../img/oc-checkout.png "Pay with ezDeFi")
+
 Step 3: Select the preferred coin/token payment
+
+![Select coin/token payment](../../img/oc-payment-select.png "Select coin/token payment")
 
 Step 4: Click on **Next** button
 
 Now the system will display the QR Code, if you use wallet other than ezDeFi Wallet, please select **Pay with any crypto currency wallet** and enter the right amount on the QR Code to complete the payment. Otherwise, if you use ezDeFi Wallet, please select **Pay with ezDeFi wallet** to complete the payment.
+
+![ezDeFi QR Code display](../../img/oc-qr.png "ezDeFi QR Code display")
 
 > **Notice:** 
 > 
