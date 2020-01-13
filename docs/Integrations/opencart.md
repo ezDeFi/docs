@@ -7,12 +7,13 @@ Please make sure that you have the ezDeFi plugin file for OpenCart. In case you 
 
 To install ezDeFi plugin, go to **Extensions** -> **Installer** -> **Upload**, and upload the ezDeFi plugin setup file. After the file has been successfully uploaded, it will display this message:
 
-<img>
+![Upload plugin files](../../img/oc-upload.png "Upload plugin files")
 
 Then you go to **Extensions**, select **Payments** in the listbox in **Choose the extension type**. Scroll down, click on the Green Plus button in ezDeFi Plugin to complete the installation.
 
-<img>
-<img>
+![OpenCart activate extension](../../img/oc-payment.png "OpenCart activate extension")
+
+![Activate ezDeFi plugin](../../img/oc-ezdefi-actv.png "Activate ezDeFi plugin")
 
 After installation completed, the *Green Plus* button will change into *Red Minus* button. Now you can configure the settings of ezDeFi Plugin by clicking on the *Blue Pen* button.
 
@@ -24,7 +25,7 @@ First, you need to register for a merchant account on ezDeFi homepage:
 
 After registering for an account on ezDeFi Gateway, you can configure ezDeFi Plugin. Please make sure that your account on ezDeFi is ready, then move on to the next steps.
 
-<img>
+![ezDeFi API](../../img/oc-api.png "ezDeFi API")
 
 I. **Enable/Disable**: Turn On/Off ezDeFi Plugin on your store interface. This field allows ezDeFi to be the payment method for your customer.
 
@@ -61,13 +62,11 @@ VII. **Accepted Currency**: Setup the cryptocurrency that are allowed in your st
 
 Initially, ezDeFi automatically includes NewSD, Bitcoin, and Ethereum. You can add more coin/token by clicking on **Add more**.
 
-<img>
+![ezDeFi wallet](../../img/oc-wallet.png)
 
 The Coin config interface will add another field below, enter the currency that you want to add in Name to find coin/token.
 
 We have a list of our supported coins/tokens. If we don't have your coin/token in this list, please fill out the form at [Supported Coins/Tokens](https://ezdefi.com/news/supported-coins-tokens/)
-
-<img>
 
 * **Discount**: Enter the discount percentage for each coin/token.
 * **Expiration (seconds)**: Enter the time for checkout before it expires.
@@ -84,7 +83,7 @@ Finally, don’t forget to save your configs.
 
 Below is the completed example of ezDeFi plugin setup:
 
-![OpenCart completed setup](../../img/ "OpenCart completed setup")
+![OpenCart completed setup](../../img/oc-complete.png "OpenCart completed setup")
 
 3. ezDeFi Payment Guide
 
@@ -108,29 +107,29 @@ You can change coin/token to pay by clicking on other coin/token buttons, then c
 
 Click on **ezDeFi exception management**
 
-<img>
-
 In ezDeFi exception management, **Exception** is the record of the amount corresponding with each order. Customer’s QR code generation and amount is stored in ezDeFi exception table. This will help the merchant to handle order issues and other related problems.
 
 I. Confirm order:
 
-<img>
+![ezDeFi exception management](../../img/oc-exception1.png)
 
 Select the valid order, then click on **Confirm Paid** button.
 
 II. Change the order status from **Paid** to **Not paid**
 
-<img>
+![ezDeFi exception management](../../img/oc-exception2.png)
 
 Select the order you want to change, click **Revert** button.
 
 III. Assign amount doesn’t belong to any order
 
-<img>
+![ezDeFi exception management](../../img/oc-exception3.png)
 
-E.g: Your customer uses **Pay with any crypto currency**, but doesn’t enter the exact amount displayed in QR Code. You can go to **ezDeFi exception** to find the amount that customers paid, click on **OrderID** to find the order you want to confirm, then click on **Confirm paid** to complete the order.
+E.g: Your customer uses **Pay with any crypto currency**, but doesn’t enter the exact amount displayed in QR Code. You can go to **ezDeFi exception** to find the amount that customers paid, click on **OrderID** to find the order you want to confirm, then click on **Confirm Paid** to complete the order.
 
 IV. Choose order to assign
+
+![ezDeFi exception management](../../img/oc-exception4.png)
 
 You can assign each amount for any order you want, or you can create a new order and assign the amount for it.
 Sequence: Click on **Choose order to assign** -> Select 1 order -> Click on **Assign**.
