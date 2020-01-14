@@ -14,21 +14,21 @@ To install ezDeFi plugin, go to **Setup** -> **Payment** -> **Payment Gateway**,
 
 Then under **All Payment Gateways** tab, click on **ezDeFi** and your plugin is activated!
 
-![Activate ezDeFi](../../img/ "Activate ezDeFi")
+![Activate ezDeFi](../../img/whmcs-actv.png "Activate ezDeFi")
 
 After installation completed, click on **Manage Existing Gateways**.
 
-![Manage ezDeFi Gateway](../../img/ "Manage ezDeFi Gateway")
+![Manage ezDeFi Gateway](../../img/whmcs-manage.png "Manage ezDeFi Gateway")
 
 2. ezDeFi Configuration Guide
 
 First, you need to register for a merchant account on ezDeFi homepage:
 
-[ezDeFi Merchant Registration](https://merchant.ezdefi.com/)
+[ezDeFi Merchant Registration](https://merchant.ezdefi.com/register?utm_source=docs)
 
 After registering for an account on ezDeFi Gateway, you can configure ezDeFi Plugin. Please make sure that your account on ezDeFi is ready, then move on to the next steps.
 
-![ezDeFi Gateway Settings](../../img/ "")
+![ezDeFi Gateway Settings](../../img/whmcs-setting.png "ezDeFi Gateway Settings")
 
 I. **Show on Order From**: Turn On/Off ezDeFi Plugin on your store interface. This field allows ezDeFi to be the payment method for your customer.
 
@@ -62,7 +62,7 @@ Initially, ezDeFi automatically includes NewSD, Bitcoin, and Ethereum. You can a
 
 We have a list of our supported coins/tokens. If we don't have your coin/token in this list, please fill out the form at [Supported Coins/Tokens](https://ezdefi.com/news/supported-coins-tokens/)
 
-![Add currency](../../img/ "Add currency")
+![Add currency](../../img/whmcs-add.png "Add currency")
 
 * **Discount**: Enter the discount percentage for each coin/token.
 * **Expiration**: Enter the time for checkout before it expires.
@@ -87,7 +87,7 @@ Step 1: Select ezDeFi Payment method, click on **Complete Order**
 
 Step 2: The system will display ezDeFi QR Code, it will select the first coin/token by default.
 
-![WHMCS QR Code](../../img/ "")
+![WHMCS QR Code](../../img/whmcs-qr.png "WHMCS QR Code")
 
 Step 3: Select the preferred payment wallet, if you use wallet other than ezDeFi Wallet, please select **Pay with any crypto currency wallet** and enter the right amount on the QR Code to complete the payment. Otherwise, if you use ezDeFi Wallet, please select **Pay with ezDeFi wallet** to complete the payment.
 
@@ -99,25 +99,23 @@ Step 3: Select the preferred payment wallet, if you use wallet other than ezDeFi
 
 Click on **ezDeFi exception management**
 
-<img>
-
 In ezDeFi exception management, **Exception** is the record of the amount corresponding with each order. Customer’s QR code generation and amount is stored in ezDeFi exception table. This will help the merchant to handle order issues and other related problems.
 
 I. Confirm invoice:
 
-<img>
+![Confirm Invoice](../../img/whmcs-exception1.png "Confirm Invoice")
 
 Select the valid order, then click on **Confirm Paid** button.
 
 II. Change the invoice status from **Paid** to **Not paid**
 
-<img>
+![Reverse Order](../../img/whmcs-exception2.png "Reverse Order")
 
 Select the order you want to change, click **Reverse** button.
 
 III. Assign amount doesn’t belong to any order
 
-<img>
+![Assign amount to order](../../img/whmcs-exception3.png "Assign amount to order")
 
 E.g: Your customer uses **Pay with any crypto currency**, but doesn’t enter the exact amount displayed in QR Code. You can go to **ezDeFi exception** to find the amount that customers paid, click on **OrderID** to find the order you want to confirm, then click on **Confirm Paid** to complete the order.
 

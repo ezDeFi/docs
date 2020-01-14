@@ -21,7 +21,7 @@ After installation completed, the *Green Plus* button will change into *Red Minu
 
 First, you need to register for a merchant account on ezDeFi homepage:
 
-[ezDeFi Merchant Registration](https://merchant.ezdefi.com/)
+[ezDeFi Merchant Registration](https://merchant.ezdefi.com/register?utm_source=docs)
 
 After registering for an account on ezDeFi Gateway, you can configure ezDeFi Plugin. Please make sure that your account on ezDeFi is ready, then move on to the next steps.
 

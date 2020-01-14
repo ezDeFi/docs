@@ -24,10 +24,10 @@ For Wordpress users, you can follow the instruction below to install ezDeFi Gate
 ![Select Settings on EasyDigitalDownloads dropdown](../../img/edd.png "easydigitaldownloads settings")
 
 > **Notice:**
-> * You need to sign-up for a merchant account on [ezDeFi Gateway](https://merchant.ezdefi.com/)
+> * You need to sign-up for a merchant account on [ezDeFi Gateway](https://merchant.ezdefi.com/register?utm_source=docs)
 > * After completed the registration, you can configure ezDeFi plugin on Easy Digital Downloads
 
-5. Fill in the **API Url** and **API Key**. The **API Key** can be retrieved from your merchant account you have registered on [ezDeFi Gateways](https://merchant.ezdefi.com/)
+5. Fill in the **API Url** and **API Key**. The **API Key** can be retrieved from your merchant account you have registered on [ezDeFi Gateways](https://merchant.ezdefi.com/register?utm_source=docs)
 
 ![Fill in API Key and API Url](../../img/edd-api.png "API Key and API Url")
 
