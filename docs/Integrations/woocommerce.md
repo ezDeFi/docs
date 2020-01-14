@@ -33,7 +33,7 @@ After activating ezDeFi Plugin, you will be redirected to plugin management. In 
 
 ![Manage ezDeFi settings](../../img/woo-manage.png "Manage ezDeFi settings")
 
-6. Now the interface for ezDeFi **Manage** appears, you need to complete the **API Url** and **API Key**. The API Key can be retrieved from your merchant account you have registered on [ezDeFi Homepage](https://ezdefi.com/)
+6. Now the interface for ezDeFi **Manage** appears, you need to complete the **API Url** and **API Key**. The API Key can be retrieved from your merchant account you have registered on [ezDeFi Merchant](https://merchant.ezdefi.com/register?utm_source=docs)
 
 ![Fill in API Key and API Url](../../img/woo-api.png "Fill in API Key and Url")
 
