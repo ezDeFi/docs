@@ -119,6 +119,10 @@ III. Assign amount doesn’t belong to any order
 
 E.g: Your customer uses **Pay with any crypto currency**, but doesn’t enter the exact amount displayed in QR Code. You can go to **ezDeFi exception** to find the amount that customers paid, click on **OrderID** to find the order you want to confirm, then click on **Confirm Paid** to complete the order.
 
+> **Notice:**
+>
+> **AmountId** is the unique payment amount, generated each time the order is refreshed on the checkout page by changing a very small amount of the total price of the order, to identify the order that has the same **OrderId**. After the plugin received the **AmountId** of the completed order, it'll send back to the merchant the information of that order so the merchant will know which order did the customer pay for.
+
 IV. Choose order to assign
 
 You can assign each amount for any order you want, or you can create a new order and assign the amount for it.

@@ -140,6 +140,10 @@ IV. Choose order to assign
 You can assign each amount for any order you want, or you can create a new order and assign the amount for it.
 Sequence: Click on **Choose order to assign** -> Select 1 order -> Click on **Assign**.
 
+> **Notice:**
+>
+> **AmountId** is the unique payment amount, generated each time the order is refreshed on the checkout page by changing a very small amount of the total price of the order, to identify the order that has the same **OrderId**. After the plugin received the **AmountId** of the completed order, it'll send back to the merchant the information of that order so the merchant will know which order did the customer pay for.
+
 V. Search
 
 **ezDeFi exception management** supports search based on **Amount**, **OrderID**, **Currency**, or **Email**.
