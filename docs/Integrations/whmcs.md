@@ -1,7 +1,7 @@
 # WHMCS
 1. ezDeFi Plugin for WHMCS Installation Guide
 
-Please make sure that you have the ezDeFi plugin file for OpenCart. In case you don’t, click on the link below to download the file and install:
+Please make sure that you have the ezDeFi plugin file for WHMCS. In case you don’t, click on the link below to download the file and install:
 
 [WHMCS Marketplace](https://marketplace.whmcs.com/product/5231)
 
