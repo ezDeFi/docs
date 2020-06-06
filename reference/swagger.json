@@ -1,0 +1,568 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "You can find out more about ezDeFi at [http://ezDeFi.com](http://ezDeFi.com). For this sample, you can use the api key `api-key` to test the authorization.",
+    "version": "1.0.0-beta",
+    "title": "Crypto Payment API",
+    "termsOfService": "http://ezDeFi.com/terms/",
+    "contact": {
+      "email": "support@ezDeFi.com"
+    },
+    "license": {
+      "name": "MIT License GPL-3.0",
+      "url": "https://opensource.org/licenses/GPL-3.0"
+    }
+  },
+  "host": "",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Token",
+      "description": "List of API Requests about supported Tokens",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://ezDeFi.com"
+      }
+    },
+    {
+      "name": "Website",
+      "description": "List of API website",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://ezDeFi.com"
+      }
+    },
+    {
+      "name": "Payment",
+      "description": "List of API Requests about Payments",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://ezDeFi.com"
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/website/list": {
+      "get": {
+        "tags": [
+          "Website"
+        ],
+        "summary": "Get website list",
+        "description": "Get website list, api-key required",
+        "operationId": "getWebsiteList",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "description": "Your apiKey on gateway",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ]
+      }
+    },
+    "/website/{id}": {
+      "get": {
+        "tags": [
+          "Website"
+        ],
+        "summary": "Show website detail",
+        "description": "Show website detail",
+        "operationId": "showWebsite",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Your site ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/payment/create": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Create a payment request",
+        "description": "Create a payment request",
+        "operationId": "createPayment",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "uoid",
+            "in": "query",
+            "description": "unique order id(merchant side)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "wallet address for payment receive",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "origin payment value(merchant side)",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "currency, origin(any):target(cryto type) - ie. ETH or USD:ETH",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "amountId",
+            "in": "query",
+            "description": "Check payment with amount value",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "coinId",
+            "in": "query",
+            "description": "Setup with config website in gateway",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "safedist",
+            "in": "query",
+            "description": "number of comfirmations to accept a tx",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "ucid",
+            "in": "query",
+            "description": "unique customer id(merchant side), applied for limit pending payment per customer",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "duration",
+            "in": "query",
+            "description": "duration to accept payment(default 24 hours), unit = second",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "callback",
+            "in": "query",
+            "description": "callback url, hooked once payment success",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "redirect",
+            "in": "query",
+            "description": "redirected url, in case that payment on gateway processed",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ]
+      }
+    },
+    "/payment/get": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Get payment detail by uoid and merchantId(merchant side) or paymentid",
+        "description": "Get payment detail by uoid and merchantId(merchant side) or paymentid",
+        "operationId": "getPayment",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paymentid",
+            "in": "query",
+            "description": "payment id, which received after created",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "uoid",
+            "in": "query",
+            "description": "unique order id(merchant side)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "userid",
+            "in": "query",
+            "description": "merchant id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/payment/list": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Get payment list",
+        "description": "Get payment list, api-key required",
+        "operationId": "getPaymentList",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "skip first found payments(default 0)",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of searching result",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ucid",
+            "in": "query",
+            "description": "unique customer id(merchant side)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "received wallet address",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "chain",
+            "in": "query",
+            "description": "chain keyword (_id, name, address ...)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token keyword (_id, name, address ...)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "payment status",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "EXPIRED",
+              "PENDING",
+              "DONE"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ]
+      }
+    },
+    "/payment/list_tx": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Get tx list of a payment",
+        "description": "Get tx list of a payment",
+        "operationId": "getListTx",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "paymentid",
+            "in": "query",
+            "description": "payment id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "skip first found payments(default 0)",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit of searching result(default 50)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "api-key": []
+          }
+        ]
+      }
+    },
+    "/token/list": {
+      "get": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Show supported tokens",
+        "description": "Show supported tokens",
+        "operationId": "showTokens",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "skip first elements",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit elements",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "search keyword for token name or symbol",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "sort elements",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "name",
+              "price",
+              "symbol",
+              "default"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/token/show/{_id}": {
+      "get": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Show token detail",
+        "description": "Show token detail",
+        "operationId": "showToken",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "description": "show token by id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/token/exchange/{_pair}": {
+      "get": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Show exchange rate between fiat:token",
+        "description": "Show exchange rate between fiat:token",
+        "operationId": "exchangeToken",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "_pair",
+            "in": "path",
+            "description": "show exchange rate by pair fiat:token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api-key": {
+      "type": "apiKey",
+      "name": "api-key",
+      "in": "header"
+    }
+  },
+  "definitions": null,
+  "externalDocs": {
+    "description": "Find out more about ezDeFi",
+    "url": "https://ezDeFi.com"
+  }
+}
